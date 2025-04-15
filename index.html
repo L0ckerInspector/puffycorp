@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Puffycorp - Community</title>
+  <title>Puffycorp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #f4f4f4;
-      font-family: 'Arial', sans-serif;
+      background-color: #2c2c2c; /* Dark grey background */
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      color: #333;
+      color: #fff; /* White text for contrast */
     }
 
     .hero {
-      background: url('your-image-url.jpg') no-repeat center center/cover;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('your-image-url.jpg') no-repeat center center/cover;
       color: white;
       padding: 150px 20px;
       text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .hero h1 {
@@ -25,7 +33,7 @@
       margin-bottom: 0.3em;
     }
 
-    .button {
+    .button, .links a {
       background-color: #ff4081;
       padding: 15px 30px;
       font-size: 1.2em;
@@ -34,6 +42,12 @@
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover, .links a:hover {
+      background-color: #ff80ab;
+      transform: scale(1.1); 
     }
 
     .section {
@@ -60,6 +74,29 @@
       text-decoration: none;
       border-radius: 5px;
       font-size: 1.1em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 20px;
+      z-index: 100;
+    }
+
+    .navbar a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ff4081;
     }
 
     footer {
@@ -68,34 +105,42 @@
       padding: 20px;
       text-align: center;
     }
+
   </style>
 </head>
 <body>
 
+  <!-- Navbar Section -->
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Community</a>
+  </div>
+
   <!-- Hero Section -->
   <div class="hero">
-    <h1>Welcome to Puffycorp's Community!</h1>
-    <p>Join the fun, connect, and be a part of something amazing.</p>
+    <h1>Welcome to Puffycorp!</h1>
+    <p>Join the fun and be a part of something amazing.</p>
     <a href="https://discord.com" class="button">Join Our Discord</a>
   </div>
 
   <!-- About Me Section -->
   <div class="section about">
     <h2>About Me</h2>
-    <img src="her-photo.jpg" alt="AdoraFlame" />
-    <p>THIS INFORMATION CAN BE EDITED TO YOUR LIKING, THIS IS JUST A PLACE HOLDER FOR INFORMATION TO ADD FOR A LATER DATE, YES YES?</p>
+    <!-- Add her photo here -->
+    <img src="her-photo.jpg" alt="Her Name" />
+    <p>PLACE HOLDER FOR INFORMATION IN THE FUTURE, YES YES?!?!?!?</p>
   </div>
 
   <!-- Community Links Section -->
   <div class="section links">
-    <a href="https://www.twitch.tv/adoraflame" target="_blank">Follow me on Twitch</a>
-    <a href="https://discord.com" target="_blank">Join my Discord</a>
-    <!-- Add more links as needed -->
+    <a href="https://www.twitch.tv/puffycorp" target="_blank"><i class="fab fa-twitch"></i> Follow me on Twitch</a>
+    <a href="https://discord.gg/puffycorp" target="_blank"><i class="fab fa-discord"></i> Join my Discord</a>
   </div>
 
   <!-- Footer Section -->
   <footer>
-    <p>&copy; PuffyCorp.</p>
+    <p>&copy; 2025 Puffycorp</p>
   </footer>
 
 </body>
