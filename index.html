@@ -7,41 +7,54 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #000;
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      background-color: #000;
       color: #fff;
-    }
-
-    .navbar {
+      font-family: 'Poppins', sans-serif;
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      background-color: #111;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      min-height: 100vh;
     }
 
-    .navbar a {
+    .sidebar {
+      width: 220px;
+      background-color: #111;
+      padding-top: 40px;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar a {
       color: #ffb6c1;
       text-decoration: none;
-      font-weight: 600;
+      margin: 20px 0;
       font-size: 1.2em;
-      transition: color 0.3s ease;
+      font-weight: 600;
+      transition: 0.3s ease;
     }
 
-    .navbar a:hover {
+    .sidebar a:hover {
       color: #fff;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .section {
       display: none;
-      padding: 50px 20px;
-      text-align: center;
       animation: fadeIn 0.5s ease-in-out;
     }
 
@@ -54,13 +67,10 @@
       to { opacity: 1; }
     }
 
-    .hero {
-      padding: 100px 20px;
-    }
-
     .hero h1 {
       font-size: 3em;
       color: #ffb6c1;
+      text-align: center;
     }
 
     .button {
@@ -73,12 +83,17 @@
       cursor: pointer;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
-      margin-top: 20px;
+      margin: 20px auto;
+      display: inline-block;
     }
 
     .button:hover {
       background-color: #ff80ab;
       transform: scale(1.1); 
+    }
+
+    .about {
+      text-align: center;
     }
 
     .about img {
@@ -90,8 +105,8 @@
 
     .socials {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
       margin-top: 20px;
     }
@@ -115,53 +130,56 @@
     }
 
     footer {
-      background-color: #111;
       text-align: center;
+      color: #888;
       padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
+      margin-top: 50px;
+      font-size: 0.9em;
     }
+
   </style>
 </head>
 <body>
 
-  <div class="navbar">
+  <!-- Sidebar Nav -->
+  <div class="sidebar">
     <a href="#" onclick="showSection('home')">Home</a>
     <a href="#" onclick="showSection('about')">About</a>
-    <a href="#" onclick="showSection('social')">Social Media</a>
+    <a href="#" onclick="showSection('social')">Socials</a>
   </div>
 
-  <!-- Home -->
-  <div id="home" class="section active hero">
-    <h1>Welcome to Puffycorp!</h1>
-    <p>Join the community and explore the vibes 💖</p>
-    <a href="https://discord.gg/puffycorp" class="button" target="_blank">Join the Discord</a>
-  </div>
-
-  <!-- About -->
-  <div id="about" class="section about">
-    <h2>About Her</h2>
-    <img src="her-photo.jpg" alt="Her Name">
-    <p>This is where you can tell her story, her passions, what she loves doing, and more cute stuff 💕</p>
-  </div>
-
-  <!-- Social Media -->
-  <div id="social" class="section">
-    <h2>Find Her Online</h2>
-    <div class="socials">
-      <a href="https://www.twitch.tv/puffycorp" target="_blank"><i class="fab fa-twitch"></i> Twitch</a>
-      <a href="https://discord.gg/puffycorp" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-      <a href="https://tiktok.com/@puffycorp" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
-      <a href="https://kick.com/puffycorp" target="_blank"><i class="fas fa-tv"></i> Kick</a>
-      <a href="https://youtube.com/@puffycorp" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="https://instagram.com/puffycorp" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-      <!-- Add more links as needed -->
+  <!-- Main Content Area -->
+  <div class="content">
+    <!-- Sections -->
+    <div id="home" class="section active hero">
+      <h1>Welcome to Puffycorp!</h1>
+      <p style="text-align: center;">Where cute meets chaos 💖</p>
+      <a href="https://discord.gg/puffycorp" class="button" target="_blank">Join the Discord</a>
     </div>
-  </div>
 
-  <footer>
-    &copy; 2025 Puffycorp - Made with 💗 for her
-  </footer>
+    <div id="about" class="section about">
+      <h2>About Her</h2>
+      <img src="her-photo.jpg" alt="Her Name">
+      <p>Here’s where you add all the cute facts, her gamer vibes, maybe her favorite games, and what makes her awesome 💫</p>
+    </div>
+
+    <div id="social" class="section">
+      <h2 style="text-align: center;">Find Her Online</h2>
+      <div class="socials">
+        <a href="https://www.twitch.tv/puffycorp" target="_blank"><i class="fab fa-twitch"></i> Twitch</a>
+        <a href="https://discord.gg/puffycorp" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+        <a href="https://tiktok.com/@puffycorp" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+        <a href="https://kick.com/puffycorp" target="_blank"><i class="fas fa-tv"></i> Kick</a>
+        <a href="https://youtube.com/@puffycorp" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="https://instagram.com/puffycorp" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 Puffycorp — made with love 💗
+    </footer>
+  </div>
 
   <script>
     function showSection(id) {
