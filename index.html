@@ -2,25 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Puffycorp</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #2c2c2c; /* Dark grey background */
+      background-color: #000;
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      color: #fff; /* White text for contrast */
+      color: #fff;
     }
 
-    .hero {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('your-image-url.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 150px 20px;
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background-color: #111;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: #ffb6c1;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #fff;
+    }
+
+    .section {
+      display: none;
+      padding: 50px 20px;
       text-align: center;
-      animation: fadeIn 2s ease-in-out;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .section.active {
+      display: block;
     }
 
     @keyframes fadeIn {
@@ -28,12 +54,16 @@
       to { opacity: 1; }
     }
 
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 0.3em;
+    .hero {
+      padding: 100px 20px;
     }
 
-    .button, .links a {
+    .hero h1 {
+      font-size: 3em;
+      color: #ffb6c1;
+    }
+
+    .button {
       background-color: #ff4081;
       padding: 15px 30px;
       font-size: 1.2em;
@@ -43,105 +73,102 @@
       cursor: pointer;
       text-decoration: none;
       transition: all 0.3s ease-in-out;
+      margin-top: 20px;
     }
 
-    .button:hover, .links a:hover {
+    .button:hover {
       background-color: #ff80ab;
       transform: scale(1.1); 
-    }
-
-    .section {
-      padding: 50px 20px;
-      text-align: center;
     }
 
     .about img {
       width: 200px;
       border-radius: 50%;
       margin-bottom: 20px;
+      border: 4px solid #ffb6c1;
     }
 
-    .links {
+    .socials {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 20px;
+      margin-top: 20px;
     }
 
-    .links a {
-      background-color: #009688;
-      padding: 12px 25px;
+    .socials a {
+      background-color: #222;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      padding: 15px 25px;
+      border-radius: 8px;
       font-size: 1.1em;
+      transition: 0.3s ease;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      border: 1px solid #ffb6c1;
     }
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 10px 20px;
-      z-index: 100;
-    }
-
-    .navbar a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #ff4081;
+    .socials a:hover {
+      background-color: #ff80ab;
     }
 
     footer {
-      background-color: #333;
-      color: white;
-      padding: 20px;
+      background-color: #111;
       text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #aaa;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Navbar Section -->
   <div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Community</a>
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('social')">Social Media</a>
   </div>
 
-  <!-- Hero Section -->
-  <div class="hero">
+  <!-- Home -->
+  <div id="home" class="section active hero">
     <h1>Welcome to Puffycorp!</h1>
-    <p>Join the fun and be a part of something amazing.</p>
-    <a href="https://discord.gg/puffycorp" class="button">Join Our Discord</a>
+    <p>Join the community and explore the vibes 💖</p>
+    <a href="https://discord.gg/puffycorp" class="button" target="_blank">Join the Discord</a>
   </div>
 
-  <!-- About Me Section -->
-  <div class="section about">
-    <h2>About Me</h2>
-    <!-- Add her photo here -->
-    <img src="her-photo.jpg" alt="Her Name" />
-    <p>PLACE HOLDER FOR INFORMATION IN THE FUTURE, YES YES?!?!?!?</p>
+  <!-- About -->
+  <div id="about" class="section about">
+    <h2>About Her</h2>
+    <img src="her-photo.jpg" alt="Her Name">
+    <p>This is where you can tell her story, her passions, what she loves doing, and more cute stuff 💕</p>
   </div>
 
-  <!-- Community Links Section -->
-  <div class="section links">
-    <a href="https://www.twitch.tv/puffycorp" target="_blank"><i class="fab fa-twitch"></i> Follow me on Twitch</a>
-    <a href="https://discord.gg/puffycorp" target="_blank"><i class="fab fa-discord"></i> Join my Discord</a>
+  <!-- Social Media -->
+  <div id="social" class="section">
+    <h2>Find Her Online</h2>
+    <div class="socials">
+      <a href="https://www.twitch.tv/puffycorp" target="_blank"><i class="fab fa-twitch"></i> Twitch</a>
+      <a href="https://discord.gg/puffycorp" target="_blank"><i class="fab fa-discord"></i> Discord</a>
+      <a href="https://tiktok.com/@puffycorp" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://kick.com/puffycorp" target="_blank"><i class="fas fa-tv"></i> Kick</a>
+      <a href="https://youtube.com/@puffycorp" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="https://instagram.com/puffycorp" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <!-- Add more links as needed -->
+    </div>
   </div>
 
-  <!-- Footer Section -->
   <footer>
-    <p>&copy; 2025 Puffycorp</p>
+    &copy; 2025 Puffycorp - Made with 💗 for her
   </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
